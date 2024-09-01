@@ -17,6 +17,11 @@ const formHandler = async (e) => {
   const date = formData.get("date");
   // Call fetchCityLocation with the city data
   const geonamesData = await fetchCityLocation(city);
+  if (geonamesData.errorStatus) {
+    requiredCity.textContent = geonamesData.message;
+    requiredCity.style.color = "red";
+    return;
+  }
   const { name, lat, lng } = geonamesData;
   const daysUntilTrip = calculateDaysUntilTrip(date);
   const weatherbitData = await fetchCityWeather(lat, lng, daysUntilTrip);
@@ -36,7 +41,6 @@ const fetchCityLocation = async (city) => {
         },
       }
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching city location:", error);
