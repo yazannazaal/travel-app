@@ -1,6 +1,7 @@
 const webpack = require("webpack"),
   htmlWebpackPlugin = require("html-webpack-plugin"),
   { CleanWebpackPlugin } = require("clean-webpack-plugin"),
+  WorkboxWebpackPlugin = require("workbox-webpack-plugin"),
   path = require("path");
 
 module.exports = {
@@ -40,6 +41,11 @@ module.exports = {
       verbose: false,
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      // Add this plugin
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 };

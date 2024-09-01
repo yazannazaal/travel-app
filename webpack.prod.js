@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   htmlWebpackPlugin = require("html-webpack-plugin"),
   { CleanWebpackPlugin } = require("clean-webpack-plugin"),
   CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+  WorkboxWebpackPlugin = require("workbox-webpack-plugin"),
   path = require("path");
 
 module.exports = {
@@ -46,6 +47,10 @@ module.exports = {
       verbose: false,
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 };
