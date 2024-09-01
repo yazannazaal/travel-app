@@ -6,6 +6,38 @@
     <title>Travel App</title>
 </head>
 <body>
-    hi
+    <main>
+        <!-- Introductory section -->
+        <section>
+            <h1>Welcome to the travel app website</h1>
+            <h3>Please choose your destination and the journey date</h3>
+        </section>
+        
+        <!-- User input form -->
+        <form onsubmit="Client.formHandler(event)">
+            <div>
+                <label for="city">City</label>
+                <input type="text" id="cityId" name="city">
+                <p id="requiredCity"></p>
+            </div>
+            <div>
+                <label for="date"></label>
+                <input type="date" name="date" id="dateId">
+                <p id="requiredDate"></p>
+            </div>
+            <button>Submit</button>
+        </form>
+
+        <!-- Output section for trip details -->
+        <div class="trip-details">
+            <h2 class="remaining-days"></h2>
+            <p class="city-name"></p>
+            <p class="temperature"></p>
+            <p class="max-temperature"></p>
+            <p class="min-temperature"></p>
+            <p class="weather-description"></p>
+            <div class="city-image"></div>
+        </div>
+    </main>
 </body>
 </html>

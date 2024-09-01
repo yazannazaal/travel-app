@@ -1,1 +1,3 @@
-alert("hi");
+import { formHandler } from "./scripts/formHandler";
+
+export { formHandler };
