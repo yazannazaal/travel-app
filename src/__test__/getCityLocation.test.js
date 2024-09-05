@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { getCityLocation } = require("../../server/getCityLocation");
+const { getCityLocation } = require("../server/getCityLocation");
 
 // Mock the axios module
 jest.mock("axios");
